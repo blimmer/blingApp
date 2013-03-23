@@ -33,17 +33,29 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        app.showButtons();
     },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
+    showButtons: function() {
+        var buttonBar = document.getElementById('button-bar');
+        buttonBar.setAttribute('style', 'display: block');
+        
         console.log('Received Event: ' + id);
+    },
+    camera: {
+        getPhoto: function(source) {
+            navigator.camera.getPicture(app.camera.success, app.camera.fail,
+                                {quality: 50,
+                                destinationType: Camera.DestinationType.FILE_URI,
+                                sourceType: source});
+        },
+        success: function(imageURI) {
+            var imageDisplay = document.getElementById('imageDisplay');
+            imageDisplay.setAttribute('class', 'show');
+            imageDisplay.src = imageURI;
+        },
+        fail: function(errorMessage) {
+            alert('capture failed because ' + errorMessage);
+        }
     }
 };
