@@ -46,18 +46,16 @@
         </script>
         <script type="text/paperscript" canvas="canvas">
 			function onMouseDown(event) {
-				var hue = Math.random() * 360;
-				project.currentStyle.fillColor = new HsbColor(hue, 1, 1);
-
                 window.mouse = event;
 
                 var center = new Point(event.event.clientX, event.event.clientY);
                 var points = 6;
                 var radius1 = 20;
-                var radius2 = 50;
-                
+                var radius2 = 50;                
                 var path = new Path.Star(center, points, radius1, radius2);
-                path.fillColor = 'black';
+
+                var hue = Math.random() * 360;
+                path.fillColor = new HsbColor(hue, 1, 1);
 			}
         </script>
     </body>
