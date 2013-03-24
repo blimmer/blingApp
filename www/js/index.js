@@ -37,7 +37,7 @@ var app = {
     },
     // Update DOM on a Received Event
     showButtons: function() {
-        var buttonBar = document.getElementById('button-bar');
+        var buttonBar = document.getElementById('btn-group');
         buttonBar.setAttribute('style', 'display: block');
         
         console.log('Received Event: ' + id);

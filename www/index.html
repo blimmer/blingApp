@@ -30,9 +30,9 @@
         <div class="main">
             <h1>Bling Bling</h1>
             <div>
-                <div class="buttonbar">
-                    <button onclick="app.camera.getPhoto(navigator.camera.PictureSourceType.CAMERA)">Take Picture</button>
-                    <button onclick="app.camera.getPhoto(navigator.camera.PictureSourceType.PHOTOLIBRARY)">Load Picture</button>
+                <div class="btn-group">
+                    <button class="btn" onclick="app.camera.getPhoto(navigator.camera.PictureSourceType.CAMERA)">Take Picture</button>
+                    <button class="btn" onclick="app.camera.getPhoto(navigator.camera.PictureSourceType.PHOTOLIBRARY)">Load Picture</button>
                 </div>
                 <img src="" id="imageDisplay" class="hide" />
             </div>
