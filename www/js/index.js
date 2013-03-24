@@ -50,9 +50,8 @@ var app = {
                                 sourceType: source});
         },
         success: function(imageURI) {
-            var imageDisplay = document.getElementById('imageDisplay');
-            imageDisplay.setAttribute('class', 'show');
-            imageDisplay.src = imageURI;
+            var canvas = document.getElementById('canvas-container');
+            canvas.style.background = "url(" + imageURI + ") no-repeat";
         },
         fail: function(errorMessage) {
             alert('capture failed because ' + errorMessage);
