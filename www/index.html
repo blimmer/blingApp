@@ -46,9 +46,11 @@
         </script>
         <script type="text/paperscript" canvas="canvas">
 			function onMouseDown(event) {
-                window.mouse = event;
+                if (event.event.x == undefined || event.event.x == 0) {
+                    return;                    
+                }
 
-                var center = new Point(event.event.clientX, event.event.clientY);
+                var center = new Point(event.event.x, event.event.y);
                 var points = 6;
                 var radius1 = 20;
                 var radius2 = 50;                
