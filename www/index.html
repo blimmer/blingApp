@@ -34,14 +34,31 @@
                     <button class="btn" onclick="app.camera.getPhoto(navigator.camera.PictureSourceType.CAMERA)">Take Picture</button>
                     <button class="btn" onclick="app.camera.getPhoto(navigator.camera.PictureSourceType.PHOTOLIBRARY)">Load Picture</button>
                 </div>
-                <img src="" id="imageDisplay" class="hide" />
+                <canvas id="canvas" resize></canvas>
             </div>
         </div>
         <script type="text/javascript" src="cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/paper.js"></script>
         <script type="text/javascript">
             app.initialize();
+        </script>
+        <script type="text/paperscript" canvas="canvas">
+			function onMouseDown(event) {
+				var hue = Math.random() * 360;
+				project.currentStyle.fillColor = new HsbColor(hue, 1, 1);
+
+                window.mouse = event;
+
+                var center = new Point(event.event.clientX, event.event.clientY);
+                var points = 6;
+                var radius1 = 20;
+                var radius2 = 50;
+                
+                var path = new Path.Star(center, points, radius1, radius2);
+                path.fillColor = 'black';
+			}
         </script>
     </body>
 </html>
