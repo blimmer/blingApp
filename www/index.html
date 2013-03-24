@@ -50,12 +50,11 @@
                     return;                    
                 }
 
-                var center = new Point(event.event.x, event.event.y);
+                var center = new Point(event.event.x, (event.event.y - 55));
                 var points = 6;
                 var radius1 = 20;
                 var radius2 = 50;                
                 var path = new Path.Star(center, points, radius1, radius2);
-
                 var hue = Math.random() * 360;
                 path.fillColor = new HsbColor(hue, 1, 1);
 			}
